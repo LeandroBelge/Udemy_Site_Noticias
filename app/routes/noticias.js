@@ -10,7 +10,7 @@ module.exports = function(app){
         });
         var sql = 'select * from noticias';
         connection.query(sql, function(error, result){
-            res.send(result);
+            res.render("noticias/noticias", {noticias : result});
         });
     
     });
