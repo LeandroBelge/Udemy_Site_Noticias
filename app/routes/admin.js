@@ -6,9 +6,9 @@ module.exports = function(app){
     app.post('/noticias/salvar', function(re,res){
         var noticia = re.body;
         var connection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;
+        var noticiasModel = new app.app.models.NoticiasDAO(connection);//Instancia a classe noticiasModel
     
-        noticiasModel.salvarNoticia(noticia, connection, function(error, result){
+        noticiasModel.salvarNoticia(noticia, function(error, result){
             res.redirect('/noticias');//Depois que salva a notícia a tela de lista de notícias é chamada.
         });   
     });
