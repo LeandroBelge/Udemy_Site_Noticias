@@ -9,6 +9,7 @@ app.set('views', './app/views');
 
 app.use(bodyParser.urlencoded({extended: true}));//Trata os métodos de requisição e resposta dos formulários
 app.use(expressValidator());
+
 consign()
     .include('app/routes')
     .then('config/dbConnection.js')
