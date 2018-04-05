@@ -7,6 +7,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
+app.use(express.static('./app/public'));//Permite a utilização de recusos estáticos como se estivesem no dir raiz
 app.use(bodyParser.urlencoded({extended: true}));//Trata os métodos de requisição e resposta dos formulários
 app.use(expressValidator());
 
